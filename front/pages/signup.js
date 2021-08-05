@@ -10,7 +10,7 @@ const ErrorMessage = styled.div`
   margin-top: 5px;
 `;
 
-const signup = () => {
+const Signup = () => {
   const [email, onChangeEmail] = useInput();
   const [password, onChangePassword] = useInput();
   const [nickname, onChangeNickname] = useInput();
@@ -85,4 +85,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

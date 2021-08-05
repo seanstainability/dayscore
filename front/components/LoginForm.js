@@ -1,13 +1,17 @@
 import React, { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../reducers/user";
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onFinish = (e) => {
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
+    dispatch(loginAction({ email, password }));
   };
 
   const onChangeEmail = useCallback((e) => {

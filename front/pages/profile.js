@@ -4,7 +4,7 @@ import Head from "next/head";
 import ProfileEditForm from "../components/ProfileEditForm";
 import FollowList from "../components/FollowList";
 
-const profile = () => {
+const Profile = () => {
   const followingList = [
     { nickname: "김첨지", email: "SOULIKK@gmail.com", bio: "항해99" },
     { nickname: "엠마오", email: "dev.og.eun@gmail.com", bio: "여신티켓" },
@@ -30,4 +30,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

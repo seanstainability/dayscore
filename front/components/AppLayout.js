@@ -3,10 +3,13 @@ import Link from "next/link";
 import { Layout, Menu, Input } from "antd";
 import UserProfile from "./UserProfile";
 import LoginForm from "./LoginForm";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 const AppLayout = ({ children }) => {
   // 특정 컴포넌트들의 부모 컴포넌트
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.user);
 
   const onSearch = useCallback((keyword) => {
     console.log(keyword);
@@ -14,7 +17,7 @@ const AppLayout = ({ children }) => {
 
   return (
     <>
-      <Layout>
+      <Layout style={{ position: "relative", minHeight: "100vh" }}>
         <Layout.Header className="header" style={{ padding: 0 }}>
           <Menu mode="horizontal">
             <Menu.Item>
@@ -35,13 +38,9 @@ const AppLayout = ({ children }) => {
             </Menu.Item>
           </Menu>
         </Layout.Header>
-        <Layout>
+        <Layout style={{ paddingBottom: 70 }}>
           <Layout.Sider width="300" theme="light">
-            {isLoggedIn ? (
-              <UserProfile setIsLoggedIn={setIsLoggedIn} />
-            ) : (
-              <LoginForm setIsLoggedIn={setIsLoggedIn} />
-            )}
+            {isLoggedIn ? <UserProfile /> : <LoginForm />}
           </Layout.Sider>
           <Layout.Content>{children}</Layout.Content>
         </Layout>
@@ -49,7 +48,7 @@ const AppLayout = ({ children }) => {
           className="footer"
           style={{
             width: "100%",
-            position: "fixed",
+            position: "absolute",
             bottom: 0,
             textAlign: "center",
           }}
