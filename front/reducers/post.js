@@ -7,7 +7,7 @@ export const initialState = {
         nickname: "sean",
         email: "seanstainability@gmail.com",
       },
-      content: "첫 번째 게시글",
+      content: "첫 번째 게시글 #데이스코어 #데이식스? #뚫고지나가요",
       Images: [
         {
           src: "https://bookthumb-phinf.pstatic.net/cover/137/995/13799585.jpg?udate=20180726",

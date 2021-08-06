@@ -26,6 +26,9 @@ const AppLayout = ({ children }) => {
             <Menu.Item>
               <Link href="/profile">프로필</Link>
             </Menu.Item>
+            <Menu.Item>
+              <Link href="/score">스코어</Link>
+            </Menu.Item>
             <Menu.Item style={{ marginLeft: "auto" }}>
               <Input.Search
                 placeholder="검색어를 입력하세요."

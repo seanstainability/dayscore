@@ -4,7 +4,7 @@ import gravatar from "gravatar";
 
 const FollowList = ({ header, data }) => {
   return (
-    <div className="followList" style={{ margin: 20 }}>
+    <div className="followList" style={{ margin: "0 50px", width: "40%" }}>
       <Divider orientation="left">{header}</Divider>
       <List
         itemLayout="horizontal"

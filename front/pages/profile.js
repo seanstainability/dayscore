@@ -23,8 +23,10 @@ const Profile = () => {
       </Head>
       <AppLayout>
         <ProfileEditForm />
-        <FollowList header="팔로잉 목록" data={followingList} />
-        <FollowList header="팔로워 목록" data={followerList} />
+        <div style={{ display: "flex" }}>
+          <FollowList header="팔로잉 목록" data={followingList} />
+          <FollowList header="팔로워 목록" data={followerList} />
+        </div>
       </AppLayout>
     </>
   );
