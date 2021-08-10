@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, List, Checkbox } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { addActionRequest } from "../reducers/actions";
 
 const ActionForm = ({ handleCancel, visible, setVisible }) => {
-  const actionList = [
-    { id: 1, title: "커피 하루 1잔만 마시기", score: 1 },
-    { id: 2, title: "커피 하루 1잔만 마시기", score: 1 },
-  ];
+  const dispatch = useDispatch();
+  const [addList, setAddList] = useState();
+  const { mainScores } = useSelector((state) => state.score);
+  // const actionList = [
+  //   { id: 1, title: "커피 하루 1잔만 마시기", score: 1 },
+  //   { id: 2, title: "커피 하루 1잔만 마시기", score: 1 },
+  // ];
 
   const onChange = (values) => {
-    console.log(values);
+    setAddList(values);
   };
 
   const handleOk = () => {
+    console.log(addList);
+    dispatch(addActionRequest(addList));
     setVisible(false);
   };
   return (
@@ -31,7 +38,7 @@ const ActionForm = ({ handleCancel, visible, setVisible }) => {
             margin: 20,
           }}
           itemLayout="horizontal"
-          dataSource={actionList}
+          dataSource={mainScores}
           renderItem={(item) => (
             <>
               <List.Item actions={[<Checkbox value={item.id}></Checkbox>]}>

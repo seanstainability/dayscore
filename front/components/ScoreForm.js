@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from "react";
 import { Form, Input, Select, Button, PageHeader } from "antd";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { addScore } from "../reducers/score";
 
 const { Option } = Select;
 
@@ -20,6 +22,7 @@ const tailLayout = {
 };
 
 const ScoreForm = () => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
 
   const onReset = () => {
@@ -28,6 +31,12 @@ const ScoreForm = () => {
 
   const onFinish = useCallback((value) => {
     console.log(value.title, value.score);
+    dispatch(
+      addScore({
+        title: value.title,
+        score: value.score,
+      })
+    );
   }, []);
 
   return (

@@ -3,12 +3,14 @@ import AppLayout from "../components/AppLayout";
 import Head from "next/head";
 import ScoreForm from "../components/ScoreForm";
 import { PageHeader, List } from "antd";
+import { useSelector } from "react-redux";
 
 const Score = () => {
-  const actionList = [
-    { id: 1, title: "커피 하루 1잔만 마시기", score: 1 },
-    { id: 2, title: "커피 하루 1잔만 마시기", score: 1 },
-  ];
+  const { mainScores } = useSelector((state) => state.score);
+  // const actionList = [
+  //   { id: 1, title: "커피 하루 1잔만 마시기", score: 1 },
+  //   { id: 2, title: "커피 하루 1잔만 마시기", score: 1 },
+  // ];
   return (
     <>
       <Head>
@@ -26,7 +28,7 @@ const Score = () => {
             overflowY: scroll,
           }}
           itemLayout="horizontal"
-          dataSource={actionList}
+          dataSource={mainScores}
           renderItem={(item) => (
             <>
               <List.Item actions={[<a key="list-loadmore-delete">삭제</a>]}>

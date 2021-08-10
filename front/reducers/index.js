@@ -3,7 +3,10 @@ import { combineReducers } from "redux";
 
 import user from "./user";
 import post from "./post";
+import score from "./score";
+import actions from "./actions";
 
+// (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
   index: (state = {}, action) => {
     switch (action.type) {
@@ -16,6 +19,8 @@ const rootReducer = combineReducers({
   },
   user,
   post,
+  score,
+  actions,
 });
 
 export default rootReducer;

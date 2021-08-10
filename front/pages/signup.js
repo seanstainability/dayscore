@@ -4,6 +4,8 @@ import Head from "next/head";
 import { Form, Input, Button, PageHeader } from "antd";
 import useInput from "../hooks/useInput";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { SIGN_UP_REQUEST } from "../reducers/user";
 
 const ErrorMessage = styled.div`
   color: red;
@@ -11,6 +13,7 @@ const ErrorMessage = styled.div`
 `;
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [email, onChangeEmail] = useInput();
   const [password, onChangePassword] = useInput();
   const [nickname, onChangeNickname] = useInput();
@@ -29,7 +32,16 @@ const Signup = () => {
     if (password !== passwordCheck) {
       return setPasswordError(true);
     }
-  }, [password, passwordCheck]);
+    console.log(email, password, nickname);
+    dispatch({
+      type: SIGN_UP_REQUEST,
+      data: {
+        email,
+        password,
+        nickname,
+      },
+    });
+  }, [email, password, passwordCheck]);
 
   const layout = {
     labelCol: {

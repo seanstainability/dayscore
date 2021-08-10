@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../reducers/user";
+import { loginRequestAction } from "../reducers/user";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const LoginForm = () => {
 
   const onFinish = (e) => {
     // setIsLoggedIn(true);
-    dispatch(loginAction({ email, password }));
+    dispatch(loginRequestAction({ email, password }));
   };
 
   const onChangeEmail = useCallback((e) => {

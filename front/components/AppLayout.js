@@ -9,7 +9,7 @@ import styled from "styled-components";
 const AppLayout = ({ children }) => {
   // 특정 컴포넌트들의 부모 컴포넌트
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { me } = useSelector((state) => state.user);
 
   const onSearch = useCallback((keyword) => {
     console.log(keyword);
@@ -43,7 +43,7 @@ const AppLayout = ({ children }) => {
         </Layout.Header>
         <Layout style={{ paddingBottom: 70 }}>
           <Layout.Sider width="300" theme="light">
-            {isLoggedIn ? <UserProfile /> : <LoginForm />}
+            {me ? <UserProfile /> : <LoginForm />}
           </Layout.Sider>
           <Layout.Content>{children}</Layout.Content>
         </Layout>

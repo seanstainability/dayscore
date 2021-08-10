@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Card, Button, Avatar } from "antd";
 import gravatar from "gravatar";
 import { useDispatch } from "react-redux";
-import { logoutAction } from "../reducers/user";
+import { logoutRequestAction } from "../reducers/user";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const UserProfile = () => {
 
   const onLogOut = useCallback(() => {
     // setIsLoggedIn(false);
-    dispatch(logoutAction);
+    dispatch(logoutRequestAction());
   }, []);
 
   return (
